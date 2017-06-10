@@ -26,4 +26,6 @@ public class LoginPanel {
     public static WebElement loginButton;
     @FindBy(css = ".login-txt")
     public static WebElement failedLoginLabel;
+    @FindBy(css = ".logout")
+    public static WebElement logoutButton;
 }

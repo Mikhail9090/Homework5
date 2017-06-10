@@ -19,7 +19,7 @@ public class MainPage {
         initElements(driver, obj);
         return obj;
     }
-    @FindBy(className="profile-photo")
+    @FindBy(css=".profile-photo")
     public static WebElement expandLoginPanel;
 
     public static LoginPanel loginPanel;

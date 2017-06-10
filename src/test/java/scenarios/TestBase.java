@@ -18,7 +18,7 @@ public class TestBase {
     private String testHost = "https://epam.github.io/JDI/index.htm";
     private String geckoDriverPath = "C:\\GeckoDriver/\\geckodriver.exe";
     private String chromeDriverPath = "C:\\ChromeDriver\\chromedriver.exe";
-    private String browser = "firefox";
+    private String browser = "chrome";
 
     public WebDriver initWebDriver() {
         if (browser.equals("chrome")) {
@@ -31,7 +31,7 @@ public class TestBase {
             System.setProperty("webdriver.gecko.driver", geckoDriverPath);
             webDriver = new FirefoxDriver();
         }
-        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         return webDriver;
     }
 
