@@ -12,15 +12,12 @@ import pageobject.mainpage.sections.LoginPanel;
  * Created by Mikhail_Churakov on 6/6/2017.
  */
 public class LoginFeatureSteps extends TestBase{
-    private WebDriver webDriver;
-    private MainPage mainPage;
-    private LoginPanel loginPanel;
+    private WebDriver webDriver = initWebDriver();;
+    private MainPage mainPage = MainPage.get(webDriver);
+    private LoginPanel loginPanel = LoginPanel.get(webDriver);
 
     @Given("^I am on Home page$")
     public void openHomePage() {
-        webDriver = initWebDriver();
-        mainPage = MainPage.get(webDriver);
-        loginPanel = LoginPanel.get(webDriver);
         openBrowser();
         assertTrue(mainPage.expandLoginPanel.isDisplayed());
     }

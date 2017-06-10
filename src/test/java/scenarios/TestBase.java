@@ -21,17 +21,19 @@ public class TestBase {
     private String browser = "chrome";
 
     public WebDriver initWebDriver() {
-        if (browser.equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--kiosk");
-            webDriver = new ChromeDriver(options);
+        if (webDriver == null) {
+            if (browser.equals("chrome")) {
+                System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--kiosk");
+                webDriver = new ChromeDriver(options);
+            }
+            if (browser.equals("firefox")) {
+                System.setProperty("webdriver.gecko.driver", geckoDriverPath);
+                webDriver = new FirefoxDriver();
+            }
+            webDriver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         }
-        if (browser.equals("firefox")) {
-            System.setProperty("webdriver.gecko.driver", geckoDriverPath);
-            webDriver = new FirefoxDriver();
-        }
-        webDriver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         return webDriver;
     }
 
